@@ -30,5 +30,6 @@
     transmission_4-qt6
     krb5
     lean4
+    feh
   ];
 }
