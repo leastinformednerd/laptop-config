@@ -31,5 +31,6 @@
     krb5
     lean4
     feh
+    uv
   ];
 }

@@ -143,7 +143,7 @@ with {
     pavucontrol
    ];
 
-  services.xserver.displayManager.lightdm.background = "/home/leastinformednerd/Pictures/twink.jpg";
+  services.xserver.displayManager.lightdm.background = "/usr/share/background.png";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
