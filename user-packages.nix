@@ -32,5 +32,6 @@
     lean4
     feh
     uv
+    man-pages
   ];
 }
