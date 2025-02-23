@@ -12,6 +12,8 @@ with {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
+
+  nix.settings.experimental-features = [ "flakes" ];
   
 	nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
