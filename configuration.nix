@@ -11,6 +11,7 @@ with {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./kerberos_config.nix
     ];
 
   nix.settings.experimental-features = [ "flakes" ];
