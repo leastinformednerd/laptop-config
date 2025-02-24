@@ -33,5 +33,6 @@
     feh
     uv
     man-pages
+    ark
   ];
 }
