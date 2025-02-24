@@ -36,5 +36,6 @@
     ark
     gcc
     clang
+    netscanner
   ];
 }
