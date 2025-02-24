@@ -34,5 +34,7 @@
     uv
     man-pages
     ark
+    gcc
+    clang
   ];
 }
