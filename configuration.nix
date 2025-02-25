@@ -42,7 +42,7 @@ with {
 		serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
 	};
 
-	hardware.pulseaudio.configFile = pkgs.writeText "default.pa" ''
+	services.pulseaudio.configFile = pkgs.writeText "default.pa" ''
 		  load-module module-bluetooth-policy
 		  load-module module-bluetooth-discover
 		  ## module fails to load with 

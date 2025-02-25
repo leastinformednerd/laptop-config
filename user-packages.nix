@@ -37,5 +37,7 @@
     gcc
     clang
     netscanner
+    signal-desktop
+    konsole
   ];
 }
