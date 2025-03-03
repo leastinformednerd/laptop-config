@@ -39,5 +39,6 @@
     netscanner
     signal-desktop
     konsole
+    ghc
   ];
 }
