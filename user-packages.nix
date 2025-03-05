@@ -42,5 +42,6 @@
     ghc
     htop
     anki
+    gnumake
   ];
 }
