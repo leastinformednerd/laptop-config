@@ -40,5 +40,7 @@
     signal-desktop
     konsole
     ghc
+    htop
+    anki
   ];
 }
