@@ -19,6 +19,7 @@
     };
     libdefaults = {
       default_realm = "ECS.VUW.AC.NZ";
+      renew_lifetime = "7d";
     };
   };
 
