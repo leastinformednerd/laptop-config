@@ -43,6 +43,5 @@
     htop
     anki
     gnumake
-    ats
   ];
 }
