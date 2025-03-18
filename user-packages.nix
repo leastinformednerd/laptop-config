@@ -43,5 +43,6 @@
     htop
     anki
     gnumake
+    gdb
   ];
 }
