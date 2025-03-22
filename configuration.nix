@@ -14,6 +14,8 @@ with {
       ./kerberos_config.nix
     ];
 
+  stdenv = pkgs.clangStdenv;
+
   nix.settings.experimental-features = [ "flakes" ];
   
 	nixpkgs.config.permittedInsecurePackages = [
