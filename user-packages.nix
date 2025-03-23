@@ -44,5 +44,6 @@
     anki
     gnumake
     gdb
+    ripgrep
   ];
 }
