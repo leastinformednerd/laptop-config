@@ -45,5 +45,6 @@
     gnumake
     gdb
     ripgrep
+    libllvm
   ];
 }
