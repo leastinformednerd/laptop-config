@@ -46,5 +46,6 @@
     gdb
     ripgrep
     libllvm
+    zsh
   ];
 }

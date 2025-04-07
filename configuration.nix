@@ -130,9 +130,13 @@ with {
 	home = "/home/leastinformednerd";
 	createHome = true;
 	packages = user_packages.leastinformednerd;
+  shell = pkgs.zsh;
   };
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
+    zsh.enable = true;
+  };
 
   users.groups.leastinformednerd = {};
 
