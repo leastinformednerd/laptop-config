@@ -47,5 +47,6 @@
     ripgrep
     libllvm
     zsh
+    liburing
   ];
 }
