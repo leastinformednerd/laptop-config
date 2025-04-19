@@ -48,6 +48,5 @@
     libllvm
     zsh
     liburing
-    python312Packages.z3-solver
   ];
 }
