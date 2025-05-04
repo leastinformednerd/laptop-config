@@ -48,5 +48,7 @@
     libllvm
     zsh
     liburing
+    sage
+    python312Packages.pycryptodome
   ];
 }
