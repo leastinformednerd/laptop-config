@@ -50,5 +50,6 @@
     liburing
     sage
     python312Packages.pycryptodome
+    jq
   ];
 }
