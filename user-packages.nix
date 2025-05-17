@@ -54,5 +54,7 @@
     swi-prolog
     nodejs
     typescript-language-server
+    docker
+    docker-compose
   ];
 }
