@@ -153,6 +153,8 @@ with {
 
   services.xserver.displayManager.lightdm.background = "/usr/share/background.png";
 
+  services.logind.lidSwitchExternalPower = "ignore";
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

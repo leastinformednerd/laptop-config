@@ -51,5 +51,8 @@
     sage
     python312Packages.pycryptodome
     jq
+    swi-prolog
+    nodejs
+    typescript-language-server
   ];
 }
