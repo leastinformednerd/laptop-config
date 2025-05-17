@@ -119,6 +119,8 @@ with {
   #   ];
   # };
 
+  users.groups.docker.members = ["leastinformednerd"];
+
   users.users.leastinformednerd = {
 	isNormalUser = true;
 	extraGroups = [ "wheel"
