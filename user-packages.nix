@@ -56,5 +56,7 @@
     typescript-language-server
     docker
     docker-compose
+    arandr
+    haskell-language-server
   ];
 }

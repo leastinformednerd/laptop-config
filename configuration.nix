@@ -119,7 +119,7 @@ with {
   #   ];
   # };
 
-  users.groups.docker.members = ["leastinformednerd"];
+  users.groups.docker = {};
 
   users.users.leastinformednerd = {
 	isNormalUser = true;
@@ -127,6 +127,7 @@ with {
 		"networkmanager"
     "video"
     "dialout"
+    "docker"
 	];
 	group = "leastinformednerd";
 	home = "/home/leastinformednerd";
