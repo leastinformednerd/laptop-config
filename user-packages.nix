@@ -58,5 +58,6 @@
     docker-compose
     arandr
     haskell-language-server
+    yazi
   ];
 }
