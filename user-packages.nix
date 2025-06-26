@@ -59,5 +59,8 @@
     arandr
     haskell-language-server
     yazi
+    dune_3
+    ocaml
+    opam
   ];
 }
