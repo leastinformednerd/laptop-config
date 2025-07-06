@@ -62,5 +62,7 @@
     dune_3
     ocaml
     opam
+    zulu23
+    processing
   ];
 }
