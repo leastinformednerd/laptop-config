@@ -63,6 +63,5 @@
     ocaml
     opam
     zulu23
-    processing
   ];
 }
