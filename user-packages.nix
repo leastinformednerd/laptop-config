@@ -15,7 +15,7 @@
     git
     godot_4
     heroic
-    lean4
+    elan
     vlc
     obs-studio
     obsidian
@@ -63,5 +63,6 @@
     ocaml
     opam
     zulu23
+    lld
   ];
 }
