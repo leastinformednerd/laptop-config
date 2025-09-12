@@ -73,18 +73,16 @@ with {
 
   programs.sway = {
     enable = true;
-    extraPackages = [
-      brightnessctl
+    package = pkgs.sway;
+    extraPackages = with pkgs; [
       grim
       wmenu
-    ]
+      foot
+      i3blocks
+    ];
   };
 
   
-  services.displayManager = {
-    defaultSession = "none+i3";
-  };
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -137,14 +135,20 @@ with {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    lightdm
     alacritty
     pipewire
     pulseaudio
     pavucontrol
    ];
 
-  services.xserver.displayManager.lightdm.background = "/usr/share/background.png";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c ${pkgs.sway}/bin/sway";
+      };
+    };
+  };
 
   services.logind.lidSwitchExternalPower = "ignore";
 
