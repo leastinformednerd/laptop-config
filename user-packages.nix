@@ -64,5 +64,8 @@
     opam
     zulu23
     lld
+    OVMF.fd
+    wl-clipboard
+    slurp
   ];
 }
