@@ -24,7 +24,6 @@
     python314
     qemu
     ruff
-    spectacle
     thunderbird
     tor-browser
     transmission_4-qt6
@@ -33,12 +32,10 @@
     feh
     uv
     man-pages
-    ark
     gcc
     clang
     netscanner
     signal-desktop
-    konsole
     ghc
     htop
     anki
@@ -67,5 +64,11 @@
     OVMF.fd
     wl-clipboard
     slurp
+    wdisplays
+    scowl
+    harper
+    chromium
+    kdePackages.ark
+    xdg-desktop-portal-wlr
   ];
 }

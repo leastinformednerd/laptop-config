@@ -14,7 +14,7 @@ with {
       ./kerberos_config.nix
     ];
 
-  nix.settings.experimental-features = [ "flakes" ];
+  nix.settings.experimental-features = [ "flakes" "nix-command"];
   
 	nixpkgs.config.permittedInsecurePackages = [
                 "electron-25.9.0"
@@ -22,7 +22,28 @@ with {
               
   nixpkgs.config.allowUnfree = true;
 
-  programs.nix-ld.enable = true;
+    security.rtkit.enable = true; # this is required for pipewire real-time access
+     xdg.portal = {
+      enable = true;
+      config = {
+        common = {
+          default = "wlr";
+        };
+      };
+      wlr.enable = true;
+      wlr.settings.screencast = {
+        output_name = "eDP-1";
+        chooser_type = "simple";
+        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+      };
+    };
+  
+  programs.nix-ld = {
+    enable = true;
+    libraries = [
+      pkgs.stdenv.cc.cc.lib
+    ];
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
