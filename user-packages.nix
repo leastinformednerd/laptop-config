@@ -70,5 +70,6 @@
     chromium
     kdePackages.ark
     xdg-desktop-portal-wlr
+    prismlauncher
   ];
 }
