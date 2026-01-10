@@ -59,7 +59,7 @@
     dune_3
     ocaml
     opam
-    zulu23
+    zulu25
     lld
     OVMF.fd
     wl-clipboard
