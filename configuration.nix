@@ -166,12 +166,12 @@ with {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -c ${pkgs.sway}/bin/sway";
+        command = "${pkgs.tuigreet}/bin/tuigreet -c ${pkgs.sway}/bin/sway";
       };
     };
   };
 
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

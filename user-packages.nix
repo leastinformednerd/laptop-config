@@ -24,6 +24,7 @@
     python314
     qemu
     ruff
+    ty
     thunderbird
     tor-browser
     transmission_4-qt6
@@ -71,5 +72,6 @@
     kdePackages.ark
     xdg-desktop-portal-wlr
     prismlauncher
+    libclang
   ];
 }
