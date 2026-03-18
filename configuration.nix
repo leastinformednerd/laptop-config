@@ -72,6 +72,10 @@ with {
     package = pkgs.niri;
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -136,7 +140,7 @@ with {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -c ${pkgs.niri}/bin/niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet -c \"${pkgs.niri}/bin/niri --session\"";
       };
     };
   };
