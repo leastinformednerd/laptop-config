@@ -19,20 +19,6 @@ with {
   nixpkgs.config.allowUnfree = true;
 
   security.rtkit.enable = true; # this is required for pipewire real-time access
-  xdg.portal = {
-    enable = true;
-    config = {
-      common = {
-        default = "wlr";
-      };
-    };
-    wlr.enable = true;
-    wlr.settings.screencast = {
-      output_name = "eDP-1";
-      chooser_type = "simple";
-      chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-    };
-  };
   
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -81,15 +67,9 @@ with {
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  programs.sway = {
+  programs.niri = {
     enable = true;
-    package = pkgs.sway;
-    extraPackages = with pkgs; [
-      grim
-      wmenu
-      foot
-      i3blocks
-    ];
+    package = pkgs.niri;
   };
 
   
@@ -155,7 +135,7 @@ with {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -c ${pkgs.sway}/bin/sway";
+        command = "${pkgs.tuigreet}/bin/tuigreet -c ${pkgs.niri}/bin/niri";
       };
     };
   };
