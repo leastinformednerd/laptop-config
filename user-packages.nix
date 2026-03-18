@@ -76,5 +76,6 @@
     xxd
     tailscale
     gleam
+    waybar
   ];
 }
