@@ -73,5 +73,8 @@
     xdg-desktop-portal-wlr
     prismlauncher
     libclang
+    xxd
+    tailscale
+    gleam
   ];
 }
