@@ -74,9 +74,15 @@ with {
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    configPackages = [ pkgs.niri ];
+    config = {
+      common.default = ["gtk"];
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
-  
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 

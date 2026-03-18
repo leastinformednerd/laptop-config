@@ -70,7 +70,7 @@
     harper
     chromium
     kdePackages.ark
-    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
     prismlauncher
     libclang
     xxd
