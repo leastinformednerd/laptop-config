@@ -15,40 +15,30 @@ with {
     ];
 
   nix.settings.experimental-features = [ "flakes" "nix-command"];
-  
-	nixpkgs.config.permittedInsecurePackages = [
-                "electron-25.9.0"
-              ];
-              
+
   nixpkgs.config.allowUnfree = true;
 
-    security.rtkit.enable = true; # this is required for pipewire real-time access
-     xdg.portal = {
-      enable = true;
-      config = {
-        common = {
-          default = "wlr";
-        };
-      };
-      wlr.enable = true;
-      wlr.settings.screencast = {
-        output_name = "eDP-1";
-        chooser_type = "simple";
-        chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+  security.rtkit.enable = true; # this is required for pipewire real-time access
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = "wlr";
       };
     };
-  
-  programs.nix-ld = {
-    enable = true;
-    libraries = [
-      pkgs.stdenv.cc.cc.lib
-    ];
+    wlr.enable = true;
+    wlr.settings.screencast = {
+      output_name = "eDP-1";
+      chooser_type = "simple";
+      chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+    };
   };
+  
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "my-laptop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -56,7 +46,6 @@ with {
 	hardware.bluetooth.enable = true;
 	hardware.bluetooth.powerOnBoot = true;
 	systemd.user.services.mpris-proxy = {
-
 		description = "Mpris proxy";
 		after = [ "network.target" "sound.target" ];
 		wantedBy = [ "default.target" ];
