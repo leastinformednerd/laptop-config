@@ -129,6 +129,7 @@ with {
     pipewire
     pulseaudio
     pavucontrol
+    fuzzel
    ];
 
   services.greetd = {
