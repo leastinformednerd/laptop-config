@@ -76,6 +76,7 @@
     xxd
     tailscale
     gleam
+    erlang
     waybar
   ];
 }
