@@ -14,20 +14,17 @@ with {
       ./kerberos_config.nix
     ];
 
-  nix.settings.experimental-features = [ "flakes" ];
-  
-	nixpkgs.config.permittedInsecurePackages = [
-                "electron-25.9.0"
-              ];
-              
+  nix.settings.experimental-features = [ "flakes" "nix-command"];
+
   nixpkgs.config.allowUnfree = true;
 
-  programs.nix-ld.enable = true;
+  security.rtkit.enable = true; # this is required for pipewire real-time access
+  
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "my-laptop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -35,7 +32,6 @@ with {
 	hardware.bluetooth.enable = true;
 	hardware.bluetooth.powerOnBoot = true;
 	systemd.user.services.mpris-proxy = {
-
 		description = "Mpris proxy";
 		after = [ "network.target" "sound.target" ];
 		wantedBy = [ "default.target" ];
@@ -71,28 +67,20 @@ with {
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  services.xserver = {
-    enable=true;
-    
-    xkb = {
-      layout = "nz";
-      variant = "";
-    };
-
-    windowManager.i3 = {
-	    enable=true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-     ];
-    };
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
   };
 
-  
-  services.displayManager = {
-    defaultSession = "none+i3";
+  xdg.portal = {
+    enable = true;
+    configPackages = [ pkgs.niri ];
+    config = {
+      common.default = ["gtk"];
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
 
   # Enable CUPS to print documents.
@@ -119,19 +107,27 @@ with {
   #   ];
   # };
 
+  users.groups.docker = {};
+
   users.users.leastinformednerd = {
 	isNormalUser = true;
 	extraGroups = [ "wheel"
 		"networkmanager"
     "video"
+    "dialout"
+    "docker"
 	];
 	group = "leastinformednerd";
 	home = "/home/leastinformednerd";
 	createHome = true;
 	packages = user_packages.leastinformednerd;
+  shell = pkgs.zsh;
   };
 
-  programs.steam.enable = true;
+  programs = {
+    steam.enable = true;
+    zsh.enable = true;
+  };
 
   users.groups.leastinformednerd = {};
 
@@ -139,14 +135,23 @@ with {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    lightdm
     alacritty
     pipewire
     pulseaudio
     pavucontrol
+    fuzzel
    ];
 
-  services.xserver.displayManager.lightdm.background = "/usr/share/background.png";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet -c \"${pkgs.niri}/bin/niri --session\"";
+      };
+    };
+  };
+
+  services.logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -161,7 +166,7 @@ with {
   #Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

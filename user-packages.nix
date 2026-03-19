@@ -15,7 +15,7 @@
     git
     godot_4
     heroic
-    lean4
+    elan
     vlc
     obs-studio
     obsidian
@@ -24,7 +24,7 @@
     python314
     qemu
     ruff
-    spectacle
+    ty
     thunderbird
     tor-browser
     transmission_4-qt6
@@ -33,15 +33,50 @@
     feh
     uv
     man-pages
-    ark
     gcc
     clang
     netscanner
     signal-desktop
-    konsole
     ghc
     htop
     anki
     gnumake
+    gdb
+    ripgrep
+    libllvm
+    zsh
+    liburing
+    sage
+    python312Packages.pycryptodome
+    jq
+    swi-prolog
+    nodejs
+    typescript-language-server
+    docker
+    docker-compose
+    arandr
+    haskell-language-server
+    yazi
+    dune_3
+    ocaml
+    opam
+    zulu25
+    lld
+    OVMF.fd
+    wl-clipboard
+    slurp
+    wdisplays
+    scowl
+    harper
+    chromium
+    kdePackages.ark
+    xdg-desktop-portal-gtk
+    prismlauncher
+    libclang
+    xxd
+    tailscale
+    gleam
+    erlang
+    waybar
   ];
 }
