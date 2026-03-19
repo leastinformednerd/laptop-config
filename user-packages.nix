@@ -78,5 +78,6 @@
     gleam
     erlang
     waybar
+    wbg
   ];
 }
