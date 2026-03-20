@@ -48,6 +48,14 @@ with {
 		  # load-module module-bluez5-discover
 	'';
 
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = [
+      pkgs.stdenv.cc.cc.lib
+    ];
+  };
+
   #hardware.graphics.extraPackages = [
   #  pkgs.intel-media-driver
   #];
