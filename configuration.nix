@@ -154,7 +154,7 @@ with {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -c \"${pkgs.niri}/bin/niri --session\"";
+        command = "${pkgs.tuigreet}/bin/tuigreet -c \"${pkgs.niri}/bin/niri-session\"";
       };
     };
   };
