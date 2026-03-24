@@ -12,6 +12,7 @@ with {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./kerberos_config.nix
+      ./systemd-services.nix
     ];
 
   nix.settings.experimental-features = [ "flakes" "nix-command"];
@@ -135,6 +136,11 @@ with {
   programs = {
     steam.enable = true;
     zsh.enable = true;
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = ["leastinformednerd"];
+    };
   };
 
   users.groups.leastinformednerd = {};
