@@ -79,5 +79,6 @@
     erlang
     waybar
     wbg
+    xwayland-satellite
   ];
 }

@@ -148,6 +148,7 @@ with {
     pulseaudio
     pavucontrol
     fuzzel
+    swaylock
    ];
 
   services.greetd = {
