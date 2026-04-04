@@ -80,5 +80,6 @@
     waybar
     wbg
     xwayland-satellite
+    racket
   ];
 }
