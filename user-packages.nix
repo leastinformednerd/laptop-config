@@ -1,5 +1,5 @@
 {pkgs, ...} : with pkgs; {
-  leastinformednerd = [
+  myself = [
     helix
     firefox
     steam

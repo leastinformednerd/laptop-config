@@ -129,21 +129,28 @@ with {
 	group = "leastinformednerd";
 	home = "/home/leastinformednerd";
 	createHome = true;
-	packages = user_packages.leastinformednerd;
+	packages = user_packages.myself;
   shell = pkgs.zsh;
   };
 
-  programs = {
-    steam.enable = true;
-    zsh.enable = true;
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = ["leastinformednerd"];
-    };
+  users.groups.leastinformednerd = {};
+
+  users.users.taylor = {
+	isNormalUser = true;
+	extraGroups = [ "wheel"
+		"networkmanager"
+    "video"
+    "dialout"
+    "docker"
+	];
+	group = "taylor";
+	home = "/home/taylor";
+	createHome = true;
+	packages = user_packages.myself;
+  shell = pkgs.zsh;
   };
 
-  users.groups.leastinformednerd = {};
+  users.groups.taylor = {};
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -156,6 +163,16 @@ with {
     fuzzel
     swaylock
    ];
+
+  programs = {
+    steam.enable = true;
+    zsh.enable = true;
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = ["taylor"];
+    };
+  };
 
   services.greetd = {
     enable = true;
