@@ -118,23 +118,6 @@ with {
 
   users.groups.docker = {};
 
-  users.users.leastinformednerd = {
-	isNormalUser = true;
-	extraGroups = [ "wheel"
-		"networkmanager"
-    "video"
-    "dialout"
-    "docker"
-	];
-	group = "leastinformednerd";
-	home = "/home/leastinformednerd";
-	createHome = true;
-	packages = user_packages.myself;
-  shell = pkgs.zsh;
-  };
-
-  users.groups.leastinformednerd = {};
-
   users.users.taylor = {
 	isNormalUser = true;
 	extraGroups = [ "wheel"
