@@ -159,6 +159,7 @@ with {
 
   services.greetd = {
     enable = true;
+    useTextGreeter = true;
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet -c \"${pkgs.niri}/bin/niri-session\"";
