@@ -6,6 +6,7 @@
 
 with {
 	user_packages = (import ./user-packages.nix) pkgs;
+	myname = "taylor";
 };
 {
   imports =
@@ -118,7 +119,8 @@ with {
 
   users.groups.docker = {};
 
-  users.users.taylor = {
+  users.users.myself = {
+  name = myname;
 	isNormalUser = true;
 	extraGroups = [ "wheel"
 		"networkmanager"
@@ -126,14 +128,16 @@ with {
     "dialout"
     "docker"
 	];
-	group = "taylor";
-	home = "/home/taylor";
+	group = myname;
+	home = "/home/${myname}";
 	createHome = true;
 	packages = user_packages.myself;
   shell = pkgs.zsh;
   };
 
-  users.groups.taylor = {};
+  users.groups = {
+    ${myname} = {};
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -153,7 +157,7 @@ with {
     _1password.enable = true;
     _1password-gui = {
       enable = true;
-      polkitPolicyOwners = ["taylor"];
+      polkitPolicyOwners = [myname];
     };
   };
 
